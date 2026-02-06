@@ -1,0 +1,5 @@
+{
+  "name": "Lumina Dynamic Gallery",
+  "description": "A high-end, immersive gallery experience using GSAP for sophisticated sticky, horizontal, and vertical scroll interactions.",
+  "requestFramePermissions": []
+}
