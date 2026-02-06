@@ -66,7 +66,7 @@ const StickyGallery: React.FC = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="overflow-hidden bg-black">
+    <div ref={sectionRef} id="gallery" className="overflow-hidden bg-black" aria-label="Gallery">
       <div 
         ref={horizontalRef} 
         className="flex items-center h-screen space-x-32 px-[10vw] relative will-change-transform"

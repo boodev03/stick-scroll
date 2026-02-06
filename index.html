@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lumina | Immersive Digital Experience</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700;800&family=Playfair+Display:ital,wght@0,400;0,900;1,400&display=swap" rel="stylesheet">
     <style>
       :root {
@@ -48,6 +47,61 @@
       ::-webkit-scrollbar-thumb {
         background: #333;
       }
+      /* Loader: visible before React, matches site UI */
+      #app-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      #app-loader::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.05;
+        pointer-events: none;
+      }
+      .loader-inner {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .loader-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.5rem, 12vw, 6rem);
+        font-weight: 900;
+        font-style: italic;
+        color: #fff;
+        letter-spacing: -0.04em;
+        line-height: 0.85;
+        margin: 0 0 2.5rem;
+      }
+      .loader-line {
+        width: 120px;
+        height: 1px;
+        background: rgba(255,255,255,0.15);
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .loader-progress {
+        height: 100%;
+        width: 0;
+        background: var(--accent);
+        animation: loader-progress 1.4s ease-in-out infinite;
+      }
+      @keyframes loader-progress {
+        0% { width: 0; margin-left: 0; }
+        50% { width: 100%; margin-left: 0; }
+        100% { width: 100%; margin-left: 0; }
+      }
     </style>
   <script type="importmap">
 {
@@ -62,6 +116,14 @@
 </script>
 </head>
   <body class="noise-bg">
-    <div id="root"></div>
+    <div id="root">
+      <div id="app-loader" aria-live="polite" aria-label="Loading">
+        <div class="loader-inner">
+          <p class="loader-title">LUMINA</p>
+          <div class="loader-line"><div class="loader-progress"></div></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

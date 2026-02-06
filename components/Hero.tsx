@@ -32,7 +32,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-transparent opacity-0">
+    <section ref={containerRef} id="lab" className="relative h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-transparent opacity-0" aria-label="Hero">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-10">
         <div className="mb-6 flex items-center justify-center gap-6 text-[10px] font-bold tracking-[0.6em] uppercase text-indigo-500/60">
             <div className="w-16 h-px bg-indigo-500/20"></div>

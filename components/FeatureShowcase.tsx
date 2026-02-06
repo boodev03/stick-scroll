@@ -104,7 +104,9 @@ const FeatureShowcase: React.FC = () => {
   return (
     <section 
       ref={containerRef} 
+      id="archive"
       className="relative w-full h-screen bg-black overflow-hidden"
+      aria-label="Archive"
     >
       {/* Side Progress UI */}
       <div className="absolute right-12 top-1/2 -translate-y-1/2 z-[60] flex flex-col items-center gap-4 mix-blend-difference opacity-50">
